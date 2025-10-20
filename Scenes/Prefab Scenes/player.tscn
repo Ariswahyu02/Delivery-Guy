@@ -1,5 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://c85x48qwbir32"]
+[gd_scene load_steps=22 format=3 uid="uid://c85x48qwbir32"]
 
+[ext_resource type="Script" uid="uid://74sm71tm4ggg" path="res://Scripts/Player/player.gd" id="1_st0ck"]
 [ext_resource type="Texture2D" uid="uid://bdjl728l1anb" path="res://Assets/sprites/knight.png" id="1_w4k6v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_st0ck"]
@@ -125,15 +126,34 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_7v5rp"]
 radius = 7.07107
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_st0ck"]
+size = Vector2(30, 25)
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
+z_index = 2
+script = ExtResource("1_st0ck")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -12)
 sprite_frames = SubResource("SpriteFrames_msspf")
 animation = &"Run"
 autoplay = "Run"
-frame_progress = 0.162807
+frame_progress = 0.257065
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_7v5rp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -10.0
+offset_top = -46.0
+offset_right = 10.0
+offset_bottom = -26.0
+color = Color(0.805323, 1, 0.768247, 1)
+
+[node name="Interact Detect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interact Detect"]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_st0ck")
+debug_color = Color(0, 0.619608, 0.560784, 0.337255)
