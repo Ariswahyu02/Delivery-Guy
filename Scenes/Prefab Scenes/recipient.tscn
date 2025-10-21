@@ -1,13 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdyt3e2pxwrfb"]
+[gd_scene load_steps=4 format=3 uid="uid://bdyt3e2pxwrfb"]
 
 [ext_resource type="Script" uid="uid://ca7whkw8mn7jl" path="res://Scripts/Recipient.gd" id="1_t4pxv"]
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t4pxv"]
-particle_flag_disable_z = true
-gravity = Vector3(0, 98, 0)
+[ext_resource type="AudioStream" uid="uid://lomoltu3wsg5" path="res://Assets/sounds/coin.wav" id="2_2uoup"]
+[ext_resource type="AudioStream" uid="uid://rh0s0j55t5xv" path="res://Assets/sounds/hurt.wav" id="3_p8ioj"]
 
 [node name="Recipient" type="Area2D"]
 script = ExtResource("1_t4pxv")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-process_material = SubResource("ParticleProcessMaterial_t4pxv")
+[node name="TrueDelivery" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_2uoup")
+bus = &"SFX"
+
+[node name="FalseDelivery" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_p8ioj")
+bus = &"SFX"

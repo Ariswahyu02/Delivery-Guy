@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dxy8g2cctedm"]
-
-[ext_resource type="PackedScene" uid="uid://c2yddfpua86jc" path="res://Scenes/Prefab Scenes/game_ui.tscn" id="1_sodae"]
-
-[node name="CanvasLayer" type="CanvasLayer"]
-
-[node name="Game UI" parent="." instance=ExtResource("1_sodae")]

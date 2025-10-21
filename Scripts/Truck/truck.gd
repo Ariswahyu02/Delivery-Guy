@@ -3,6 +3,8 @@ extends Area2D
 var _pool: Array[int] = []
 var _current_type: int = -1
 @onready var indicator: ColorRect = $ColorRect   # ganti path sesuai node-mu
+@onready var carry_color: AudioStreamPlayer2D = $CarryColor
+@onready var already_carry: AudioStreamPlayer2D = $AlreadyCarry
 
 func set_colors(cs: Array[int]) -> void:
 	_pool = cs.duplicate()
@@ -15,6 +17,7 @@ func interact(player: Node) -> void:
 		return
 	if player.is_carrying():
 		# Player sudah membawa warna → truck tidak memberi warna baru.
+		already_carry.play()
 		print("[Truck] Player already carrying:", ColorSets.color_name(player.carried_type))
 		return
 	if _current_type == -1:
@@ -23,6 +26,7 @@ func interact(player: Node) -> void:
 
 	# Beri warna saat ini ke player
 	player.set_color(_current_type)
+	carry_color.play()
 	print("[Truck] Give:", ColorSets.color_name(_current_type))
 
 	# Antrikan warna berikutnya dan update indikator

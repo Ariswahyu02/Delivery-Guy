@@ -2,6 +2,8 @@ extends Area2D
 signal package_delivered(correct: bool, delivered_color: int)
 
 @export var fixed_color: ColorSets.ColorType = -1   # pilih di Inspector; -1 = tidak fixed
+@onready var true_delivery: AudioStreamPlayer2D = $TrueDelivery
+@onready var false_delivery: AudioStreamPlayer2D = $FalseDelivery
 
 var desired_type: int = -1
 var _pool: Array[int] = []
@@ -29,6 +31,7 @@ func interact(player: Node) -> void:
 	var isSameAsRecipient: bool = player.carried_type == desired_type
 	if isSameAsRecipient:
 		print("[Deliver] Correct:", ColorSets.color_name(desired_type))
+		true_delivery.play()
 		player.clear_color()  # indikator player jadi transparan
 		#if fixed_color == -1 and randomize_after_success and not _pool.is_empty():
 			#randomize_desired(_pool)
@@ -38,4 +41,5 @@ func interact(player: Node) -> void:
 			ColorSets.color_name(player.carried_type)
 		])
 		player.clear_color()
+		false_delivery.play()
 	emit_signal("package_delivered", isSameAsRecipient, player.carried_type)

@@ -26,6 +26,7 @@ func _ready() -> void:
 	btn_restart.pressed.connect(_on_retry)
 	btn_main_menu.pressed.connect(_on_main_menu)
 	game_over_panel.visible = false
+	_ui_reset()
 
 	var active_colors: Array[int] = []
 	var any_random := false
@@ -83,10 +84,12 @@ func _show_gameover() -> void:
 
 func _on_retry() -> void:
 	get_tree().paused = false
+	print("Restart")
 	get_tree().reload_current_scene()
 
 func _on_main_menu() -> void:
 	get_tree().paused = false
+	print("Main Menu")
 	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
 
 func _ui_reset() -> void:

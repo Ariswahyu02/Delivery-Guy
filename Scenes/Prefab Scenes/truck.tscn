@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1m3rw6kayvr3"]
+[gd_scene load_steps=6 format=3 uid="uid://c1m3rw6kayvr3"]
 
 [ext_resource type="Script" uid="uid://njwiaerc0sc2" path="res://Scripts/Truck/truck.gd" id="1_5wu47"]
 [ext_resource type="Texture2D" uid="uid://ddhx03lsg415g" path="res://Assets/sprites/slime_purple.png" id="1_7sktq"]
+[ext_resource type="AudioStream" uid="uid://dd0t6jocf17hy" path="res://Assets/sounds/power_up.wav" id="3_7fpqw"]
+[ext_resource type="AudioStream" uid="uid://b0bwruvymjb6v" path="res://Assets/sounds/tap.wav" id="4_2gefy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5wu47"]
 size = Vector2(28, 18)
@@ -26,4 +28,8 @@ offset_right = 8.0
 offset_bottom = -20.0
 color = Color(3.46541e-06, 0.866591, 0.832118, 1)
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="CarryColor" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_7fpqw")
+
+[node name="AlreadyCarry" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_2gefy")

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Delivery Guy"
-run/main_scene="uid://ddqw5iu1ifavv"
+run/main_scene="uid://b54ks45fqm0ou"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 PlayerData="*res://Scripts/player_data.gd"
 ColorSets="*res://Scripts/color_sets.gd"
+Bgm="*res://Scenes/bgm.tscn"
 
 [input]
 
