@@ -1,7 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://c85x48qwbir32"]
+[gd_scene load_steps=28 format=3 uid="uid://c85x48qwbir32"]
 
 [ext_resource type="Script" uid="uid://74sm71tm4ggg" path="res://Scripts/Player/player.gd" id="1_st0ck"]
 [ext_resource type="Texture2D" uid="uid://bdjl728l1anb" path="res://Assets/sprites/knight.png" id="1_w4k6v"]
+[ext_resource type="SpineSkeletonDataResource" uid="uid://b3id8xxu86yp6" path="res://Assets/mix-and-match/mix-and-match-data.tres" id="3_aibue"]
+[ext_resource type="Script" uid="uid://cspmgji3qmpbq" path="res://Scripts/Player/player_spine_sprite.gd" id="4_n7txo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_msspf"]
 atlas = ExtResource("1_w4k6v")
@@ -167,6 +169,7 @@ z_index = 2
 script = ExtResource("1_st0ck")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(1, -12)
 sprite_frames = SubResource("SpriteFrames_msspf")
 animation = &"Idle"
@@ -179,9 +182,9 @@ shape = SubResource("CircleShape2D_7v5rp")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -10.0
-offset_top = -46.0
+offset_top = -53.0
 offset_right = 10.0
-offset_bottom = -26.0
+offset_bottom = -33.0
 color = Color(0.805323, 1, 0.768247, 1)
 
 [node name="Interact Detect" type="Area2D" parent="."]
@@ -190,3 +193,13 @@ color = Color(0.805323, 1, 0.768247, 1)
 position = Vector2(0, -13)
 shape = SubResource("RectangleShape2D_st0ck")
 debug_color = Color(0, 0.619608, 0.560784, 0.337255)
+
+[node name="SpineSprite" type="SpineSprite" parent="."]
+position = Vector2(1, 3.72529e-09)
+scale = Vector2(0.0387412, 0.0387412)
+skeleton_data_res = ExtResource("3_aibue")
+preview_skin = "accessories/bag"
+preview_animation = "-- Empty --"
+preview_frame = false
+preview_time = 0.0
+script = ExtResource("4_n7txo")
